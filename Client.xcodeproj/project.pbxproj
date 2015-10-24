@@ -222,7 +222,7 @@
 		2F3724E81ABF3C19007607FA /* StorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3724E31ABF3C19007607FA /* StorageClient.swift */; };
 		2F3724E91ABF3C19007607FA /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3724E41ABF3C19007607FA /* Synchronizer.swift */; };
 		2F3724EA1ABF3C19007607FA /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3724E41ABF3C19007607FA /* Synchronizer.swift */; };
-		2F44FA161A9D41A200FD20CC /* Base32.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2F44F9FD1A9D417600FD20CC /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F44FA161A9D41A200FD20CC /* .framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2F44F9FD1A9D417600FD20CC /* .framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F44FA1B1A9D426A00FD20CC /* TestHashExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44FA1A1A9D426A00FD20CC /* TestHashExtensions.swift */; };
 		2F44FB2C1A9D5D8500FD20CC /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F84B22261A09127C00AAB793 /* Home.xcassets */; };
 		2F44FB2D1A9D5D8500FD20CC /* FiraSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4B7B7421A793CF20022C5E0 /* FiraSans-BoldItalic.ttf */; };
@@ -310,6 +310,7 @@
 		2FFC4D1C1ABE3C360081D675 /* FxAState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC4D1A1ABE3C360081D675 /* FxAState.swift */; };
 		2FFC4D381ABE3C420081D675 /* FxAStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC4D371ABE3C420081D675 /* FxAStateTests.swift */; };
 		394CF6CF1BAA493C00906917 /* DefaultSuggestedSites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CF6CE1BAA493C00906917 /* DefaultSuggestedSites.swift */; settings = {ASSET_TAGS = (); }; };
+		395E29D81BDA82BC00FC4B1F /* OnePasswordExtension.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 395E29C21BDA82A400FC4B1F /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39A362D91AAF5ECE00F47390 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A362D41AAF5E2C00F47390 /* XCGLogger.framework */; };
 		39A362DA1AAF5ECE00F47390 /* XCGLogger.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 39A362D41AAF5E2C00F47390 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
@@ -979,6 +980,13 @@
 			remoteGlobalIDString = 6CA0A7D21A74E91700AC539F;
 			remoteInfo = "Base32-iOS";
 		};
+		395E29C11BDA82A400FC4B1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 395E29AD1BDA82A300FC4B1F /* OnePasswordExtension.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C3F4D8C1A59ACDC004B3ECE;
+			remoteInfo = OnePasswordExtension;
+		};
 		39A362D31AAF5E2C00F47390 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 39A362B21AAF5E2B00F47390 /* XCGLogger.xcodeproj */;
@@ -1306,10 +1314,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				395E29D81BDA82BC00FC4B1F /* OnePasswordExtension.framework in Copy Frameworks */,
 				D30DD4251B94FE0E00850E76 /* SQLite.framework in Copy Frameworks */,
 				E6C05DB21BA1CDAB00CDDD08 /* Breakpad.framework in Copy Frameworks */,
 				E4D567301ADECE2800F1EFE7 /* ReadingList.framework in Copy Frameworks */,
-				2F44FA161A9D41A200FD20CC /* Base32.framework in Copy Frameworks */,
+				2F44FA161A9D41A200FD20CC /* .framework in Copy Frameworks */,
 				0BA84AE41AE57147009C4D0C /* SnapKit.framework in Copy Frameworks */,
 				D38B2D881A8D98700040E6B5 /* SWXMLHash.framework in Copy Frameworks */,
 				2FCAE2321ABB51F800877008 /* Storage.framework in Copy Frameworks */,
@@ -1534,6 +1543,7 @@
 		2FFC4D1A1ABE3C360081D675 /* FxAState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FxAState.swift; sourceTree = "<group>"; };
 		2FFC4D371ABE3C420081D675 /* FxAStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FxAStateTests.swift; sourceTree = "<group>"; };
 		394CF6CE1BAA493C00906917 /* DefaultSuggestedSites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSuggestedSites.swift; sourceTree = "<group>"; };
+		395E29AD1BDA82A300FC4B1F /* OnePasswordExtension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnePasswordExtension.xcodeproj; path = "Carthage/Checkouts/onepassword-extension/OnePasswordExtension.xcodeproj"; sourceTree = "<group>"; };
 		39A362B21AAF5E2B00F47390 /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = Carthage/Checkouts/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4F514FD31ACD8F2C0022D7EA /* HistoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
@@ -2292,7 +2302,7 @@
 			children = (
 				2F44F9F91A9D417600FD20CC /* Base32.framework */,
 				2F44F9FB1A9D417600FD20CC /* Base32-MacTests.xctest */,
-				2F44F9FD1A9D417600FD20CC /* Base32.framework */,
+				2F44F9FD1A9D417600FD20CC /* .framework */,
 				2F44F9FF1A9D417600FD20CC /* Base32-iOSTests.xctest */,
 				2F44FA011A9D417600FD20CC /* SecEncodeTransformTests.xctest */,
 			);
@@ -2454,6 +2464,14 @@
 				2FCAE25B1ABB531100877008 /* SwiftData.swift */,
 			);
 			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		395E29AE1BDA82A300FC4B1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				395E29C21BDA82A400FC4B1F /* OnePasswordExtension.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		39A362B31AAF5E2B00F47390 /* Products */ = {
@@ -2976,6 +2994,7 @@
 				E69E4E241B9F709A00646EDB /* Breakpad.xcodeproj */,
 				28CE83CA1A1D1D5100576538 /* FxA.xcodeproj */,
 				D38B2D621A8D976A0040E6B5 /* KIF.xcodeproj */,
+				395E29AD1BDA82A300FC4B1F /* OnePasswordExtension.xcodeproj */,
 				0B6544B01A96C59E000DD202 /* SDWebImage.xcodeproj */,
 				0BA84AB61AE5706F009C4D0C /* SnapKit.xcodeproj */,
 				0B742CC61B32491400EE9264 /* sqlcipher.xcodeproj */,
@@ -3727,6 +3746,10 @@
 					ProjectRef = D38B2D621A8D976A0040E6B5 /* KIF.xcodeproj */;
 				},
 				{
+					ProductGroup = 395E29AE1BDA82A300FC4B1F /* Products */;
+					ProjectRef = 395E29AD1BDA82A300FC4B1F /* OnePasswordExtension.xcodeproj */;
+				},
+				{
 					ProductGroup = 0B6544B11A96C59E000DD202 /* Products */;
 					ProjectRef = 0B6544B01A96C59E000DD202 /* SDWebImage.xcodeproj */;
 				},
@@ -3858,9 +3881,10 @@
 			remoteRef = 2F44F9FA1A9D417600FD20CC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2F44F9FD1A9D417600FD20CC /* Base32.framework */ = {
+		2F44F9FD1A9D417600FD20CC /* .framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
+			name = .framework;
 			path = Base32.framework;
 			remoteRef = 2F44F9FC1A9D417600FD20CC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -3877,6 +3901,13 @@
 			fileType = wrapper.cfbundle;
 			path = SecEncodeTransformTests.xctest;
 			remoteRef = 2F44FA001A9D417600FD20CC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		395E29C21BDA82A400FC4B1F /* OnePasswordExtension.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OnePasswordExtension.framework;
+			remoteRef = 395E29C11BDA82A400FC4B1F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		39A362D41AAF5E2C00F47390 /* XCGLogger.framework */ = {
