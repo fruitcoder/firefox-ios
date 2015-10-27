@@ -870,6 +870,7 @@ extension BrowserViewController {
 }
 
 extension BrowserViewController: URLBarDelegate {
+
     func urlBarDidPressReload(urlBar: URLBarView) {
         tabManager.selectedTab?.reload()
     }
@@ -931,6 +932,10 @@ extension BrowserViewController: URLBarDelegate {
         } else {
             return [copyAddressAction]
         }
+    }
+
+    func urlBarDisplayTextForURL(url: NSURL?) -> String? {
+        return profile.searchEngines.queryForSearchURL(url) ?? url?.absoluteString
     }
 
     func urlBarDidLongPressLocation(urlBar: URLBarView) {
