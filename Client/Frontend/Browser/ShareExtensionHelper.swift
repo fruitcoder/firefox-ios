@@ -16,17 +16,6 @@ class ShareExtensionHelper: NSObject {
         selectedTab = tab
     }
 
-    private func isPasswordManagerActivityType(activityType: String?) -> Bool {
-        let isOnePassword = OnePasswordExtension.sharedExtension().isOnePasswordExtensionActivityType(activityType)
-
-        // If your extension's bundle identifier contains "password"
-        let isPasswordManager = activityType!.rangeOfString("pass") != nil
-
-        // If your extension's bundle identifier does not contain "password", simply submit a pull request by adding your bundle idenfidier.
-        let isAnotherPasswordManager = (activityType == "bundle.identifier.for.another.password.manager")
-        return isOnePassword || isPasswordManager || isAnotherPasswordManager
-    }
-
     func createActivityViewController(completionHandler: () -> Void) -> UIActivityViewController {
         let printInfo = UIPrintInfo(dictionary: nil)
         let url = selectedTab.url!
@@ -69,27 +58,6 @@ class ShareExtensionHelper: NSObject {
         }
         return activityViewController
     }
-
-    func findLoginExtensionItem() {
-        // Add 1Password to share sheet
-        OnePasswordExtension.sharedExtension().createExtensionItemForWebView(selectedTab.webView!, completion: {(extensionItem, error) -> Void in
-            if extensionItem == nil {
-                log.error("Failed to create the password manager extension item: \(error).")
-                return
-            }
-
-            // Set the 1Password extension item property
-            self.onePasswordExtensionItem = extensionItem
-        })
-    }
-
-    func fillPasswords(logins: [AnyObject]) {
-        OnePasswordExtension.sharedExtension().fillReturnedItems(logins, intoWebView: self.selectedTab.webView!, completion: { (success, returnedItemsError) -> Void in
-            if !success {
-                log.error("Failed to fill item into webview: \(returnedItemsError).")
-            }
-        })
-    }
 }
 
 extension ShareExtensionHelper: UIActivityItemSource {
@@ -108,8 +76,42 @@ extension ShareExtensionHelper: UIActivityItemSource {
         }
     }
 
-    @objc func activityViewController(activityViewController: UIActivityViewController, dataTypeIdentifierForActivityType activityType: String?) -> String {
+    func activityViewController(activityViewController: UIActivityViewController, dataTypeIdentifierForActivityType activityType: String?) -> String {
         // Because of our UTI declaration, this UTI now satisfies both the 1Password Extension and the usual NSURL for Share extensions.
         return "org.appextension.fill-browser-action"
+    }
+}
+
+private extension ShareExtensionHelper {
+    func isPasswordManagerActivityType(activityType: String?) -> Bool {
+        let isOnePassword = OnePasswordExtension.sharedExtension().isOnePasswordExtensionActivityType(activityType)
+
+        // If your extension's bundle identifier contains "password"
+        let isPasswordManager = activityType!.rangeOfString("pass") != nil
+
+        // If your extension's bundle identifier does not contain "password", simply submit a pull request by adding your bundle idenfidier.
+        let isAnotherPasswordManager = (activityType == "bundle.identifier.for.another.password.manager")
+        return isOnePassword || isPasswordManager || isAnotherPasswordManager
+    }
+
+    func findLoginExtensionItem() {
+        // Add 1Password to share sheet
+        OnePasswordExtension.sharedExtension().createExtensionItemForWebView(selectedTab.webView!, completion: {(extensionItem, error) -> Void in
+            if extensionItem == nil {
+                log.error("Failed to create the password manager extension item: \(error).")
+                return
+            }
+
+            // Set the 1Password extension item property
+            self.onePasswordExtensionItem = extensionItem
+        })
+    }
+
+    func fillPasswords(returnedItems: [AnyObject]) {
+        OnePasswordExtension.sharedExtension().fillReturnedItems(returnedItems, intoWebView: self.selectedTab.webView!, completion: { (success, returnedItemsError) -> Void in
+            if !success {
+                log.error("Failed to fill item into webview: \(returnedItemsError).")
+            }
+        })
     }
 }
