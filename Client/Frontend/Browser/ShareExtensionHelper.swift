@@ -38,7 +38,9 @@ class ShareExtensionHelper: NSObject {
         // This needs to be ready by the time the share menu has been displayed and
         // activityViewController(activityViewController:, activityType:) is called,
         // which is after the user taps the button. So a million cycles away.
-        findLoginExtensionItem()
+        if (isPasswordManagerAvailable()) {
+            findLoginExtensionItem()
+        }
 
         activityViewController.completionWithItemsHandler = { activityType, completed, returnedItems, activityError in
             log.debug("Selected activity type: \(activityType).")
@@ -69,8 +71,7 @@ extension ShareExtensionHelper: UIActivityItemSource {
         if isPasswordManagerActivityType(activityType) {
             // Return the 1Password extension item
             return onePasswordExtensionItem
-        }
-        else {
+        } else {
             // Return the selected tab's URL
             return selectedTab.displayURL!
         }
@@ -83,7 +84,14 @@ extension ShareExtensionHelper: UIActivityItemSource {
 }
 
 private extension ShareExtensionHelper {
+    func isPasswordManagerAvailable() -> Bool {
+        return OnePasswordExtension.sharedExtension().isAppExtensionAvailable()
+    }
+
     func isPasswordManagerActivityType(activityType: String?) -> Bool {
+        if (!isPasswordManagerAvailable()) {
+            return false
+        }
         let isOnePassword = OnePasswordExtension.sharedExtension().isOnePasswordExtensionActivityType(activityType)
 
         // If your extension's bundle identifier contains "password"
